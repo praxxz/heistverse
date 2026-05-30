@@ -104,18 +104,7 @@ npm run build
 
 ### Pratham
 
-Computer Engineering Student • Frontend Developer • UI Enthusiast
-
----
-
-# 🌟 Future Improvements
-
-* Add soundtrack/music controls
-* Add API integration
-* Add episode/season database
-* Add loading animations
-* Add advanced character interactions
-* Deploy full production version
+Computer Engineering Student • AI-Powered Web & App Developer • Freelancer
 
 ---
 
