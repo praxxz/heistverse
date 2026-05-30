@@ -1,0 +1,466 @@
+.characters-section {
+  min-height: 100vh;
+  padding: 100px 60px 40px 60px;
+  background: radial-gradient(circle at center, #150505 0%, #0a0a0a 100%);
+  color: #f0e6d3;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.characters-section::-webkit-scrollbar {
+  width: 6px;
+}
+.characters-section::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.5);
+}
+.characters-section::-webkit-scrollbar-thumb {
+  background: #cc0000;
+  border-radius: 3px;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 42px;
+  font-weight: 900;
+  letter-spacing: 2px;
+  color: #f0e6d3;
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+}
+
+.section-subtitle {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 14px;
+  color: rgba(240, 230, 211, 0.6);
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  margin-top: 5px;
+}
+
+.red-divider {
+  width: 60px;
+  height: 2px;
+  background: #cc0000;
+  margin: 15px auto 0 auto;
+  box-shadow: 0 0 8px #cc0000;
+}
+
+.characters-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 40px;
+}
+
+.char-card {
+  background: rgba(18, 18, 18, 0.7);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 8px;
+  padding: 24px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 380px;
+  position: relative;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-role {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: rgba(240, 230, 211, 0.5);
+  text-transform: uppercase;
+}
+
+.card-status {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  padding: 2px 8px;
+  border-radius: 20px;
+  border: 1px solid;
+  text-transform: uppercase;
+}
+
+.card-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px 0;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.char-avatar-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  border: 1px dashed rgba(255, 255, 255, 0.15);
+}
+
+.char-avatar-bg {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.char-avatar-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+  z-index: 2;
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  filter: grayscale(40%) contrast(1.1);
+  transition: filter 0.3s ease;
+}
+
+.char-card:hover .char-avatar-img {
+  filter: grayscale(0%) contrast(1);
+}
+
+.codename-overlay {
+  position: absolute;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: rgba(255, 255, 255, 0.15);
+  bottom: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.char-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 24px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  color: #f0e6d3;
+}
+
+.char-realname {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 13px;
+  color: rgba(240, 230, 211, 0.45);
+  margin-top: 4px;
+}
+
+.card-footer {
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 15px;
+}
+
+.click-for-file {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  color: #cc0000;
+  transition: color 0.3s ease;
+}
+
+.char-card:hover .click-for-file {
+  color: #fff;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.6);
+}
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.dossier-modal {
+  background: #0d0d0d;
+  border: 1px solid;
+  max-width: 900px;
+  width: 100%;
+  border-radius: 4px;
+  position: relative;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.8);
+  overflow: hidden;
+  max-height: 90vh;
+}
+
+.corner {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #cc0000;
+  z-index: 10;
+}
+.top-left { top: 6px; left: 6px; border-right: none; border-bottom: none; }
+.top-right { top: 6px; right: 6px; border-left: none; border-bottom: none; }
+.bottom-left { bottom: 6px; left: 6px; border-right: none; border-top: none; }
+.bottom-right { bottom: 6px; right: 6px; border-left: none; border-top: none; }
+
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  background: transparent;
+  border: none;
+  color: rgba(240, 230, 211, 0.5);
+  font-size: 32px;
+  cursor: pointer;
+  z-index: 100;
+  line-height: 1;
+  transition: color 0.2s;
+}
+.close-btn:hover {
+  color: #cc0000;
+}
+
+.modal-content {
+  display: flex;
+  padding: 40px;
+  gap: 40px;
+  overflow-y: auto;
+  max-height: 85vh;
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 4px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #cc0000;
+}
+
+.modal-left {
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.dossier-title-wrap {
+  border-left: 3px solid #cc0000;
+  padding-left: 15px;
+}
+
+.dossier-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: #cc0000;
+}
+
+.dossier-name {
+  font-family: 'Playfair Display', serif;
+  font-size: 48px;
+  font-weight: 900;
+  color: #f0e6d3;
+  line-height: 1.1;
+}
+
+.dossier-id {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  color: rgba(240, 230, 211, 0.35);
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.char-visual-large {
+  width: 100%;
+  height: 250px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.pulse-circle {
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  opacity: 0.08;
+  animation: pulse 3s infinite ease-in-out;
+}
+
+@keyframes pulse {
+  0% { transform: scale(0.9); opacity: 0.04; }
+  50% { transform: scale(1.1); opacity: 0.12; }
+  100% { transform: scale(0.9); opacity: 0.04; }
+}
+
+.char-dossier-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 2;
+  filter: grayscale(10%) contrast(1.15) brightness(0.85);
+}
+
+.scanline-overlay {
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.15) 2px,
+    rgba(0, 0, 0, 0.15) 4px
+  );
+  pointer-events: none;
+}
+
+.dossier-quote-box {
+  border-top: 1px double rgba(255, 255, 255, 0.1);
+  border-bottom: 1px double rgba(255, 255, 255, 0.1);
+  padding: 15px 10px;
+  text-align: center;
+  font-style: italic;
+}
+
+.quote-text {
+  font-family: 'Playfair Display', serif;
+  font-size: 16px;
+  color: rgba(240, 230, 211, 0.8);
+  line-height: 1.5;
+}
+
+.modal-right {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+}
+
+.section-title-sm {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  color: rgba(240, 230, 211, 0.5);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 8px;
+  text-transform: uppercase;
+}
+
+.dossier-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.info-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.info-label {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  color: rgba(240, 230, 211, 0.4);
+}
+
+.info-val {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #f0e6d3;
+}
+
+.char-desc {
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 15px;
+  color: rgba(240, 230, 211, 0.72);
+  line-height: 1.65;
+}
+
+.stats-bars {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.stat-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.stat-label-wrap {
+  display: flex;
+  justify-content: space-between;
+  font-family: 'Rajdhani', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.stat-name {
+  color: rgba(240, 230, 211, 0.6);
+}
+
+.stat-val {
+  color: #f0e6d3;
+}
+
+.bar-bg {
+  height: 5px;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.bar-fill {
+  height: 100%;
+  border-radius: 10px;
+}
+
+@media(max-width: 768px) {
+  .characters-section {
+    padding: 100px 20px 40px 20px;
+  }
+  .modal-content {
+    flex-direction: column;
+    padding: 24px;
+    gap: 24px;
+  }
+  .dossier-name {
+    font-size: 36px;
+  }
+  .char-visual-large {
+    height: 180px;
+  }
+}
